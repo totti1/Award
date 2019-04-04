@@ -1,0 +1,24 @@
+{% load bootstrap4 %}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+
+    <title> IT oscars </title>
+
+    {% block styles %}
+    {% bootstrap_css %}
+    {% endblock %}
+
+</head>
+<body>
+    {% include "navbar.html" %}
+    <div style="margin-top: 4%">
+    {% block content %} {%endblock%}
+    </div>
+    {% block scripts %}
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        {% bootstrap_javascript %}
+    {% endblock %}
+</body>
+</html>

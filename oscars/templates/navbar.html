@@ -1,0 +1,43 @@
+<!--    Code Made by Erik Terwan with MIT licence did this for the purpose of learning    -->
+{% load static %}
+{% block styles %}
+    <link rel="stylesheet" href="{% static 'css/nav.css' %}">
+  {% endblock %}
+<!-- Image and text -->
+<nav class="navbar navbar-light bg-light fixed-top">
+    <a class="navbar-brand" href="{% url 'home' %}">
+        <img src="https://cdn1.iconfinder.com/data/icons/business-finance-vol-5-16/60/107-512.png" width="30" height="30" class="d-inline-block align-top" alt="">
+        Awwards
+    </a>
+    <form class="form-inline my-2 my-lg-0">
+        <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+        <button class="btn btn-outline-secondary my-2 my-sm-0" type="submit">
+            <img src="https://static.thenounproject.com/png/101791-200.png" width="20" height="20" class="d-inline-block align-top" alt="">
+        </button>
+    </form>
+    {% if user.is_authenticated %}
+        <div class="dropdown">
+            <a href="#" class="dropdown-toggle btn btn-default" data-toggle="dropdown" role="button" aria-expanded="false">
+                <img src="http://cdn.onlinewebfonts.com/svg/img_87237.png" width="30" height="30" alt="">
+            </a>
+            
+            <ul class="dropdown-menu" role="menu">
+            <li>
+                <a href="{% url 'profile' %}">Profile</a>
+            </li>
+            <li>
+                <a href="{% url 'upload_project' %}">Upload a Project</a>
+            </li>
+            <li>
+                <a href="/logout">Logout</a>
+            </li>
+            </ul>
+        </div>
+        {% else %}
+        <div>
+        <a class='btn btn-default' href="/accounts/login">
+            <img src="http://cdn.onlinewebfonts.com/svg/img_411076.png" width="30" height="30" alt="">
+        </a>
+        </div>
+    {% endif %}
+</nav>

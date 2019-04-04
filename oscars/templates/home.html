@@ -1,0 +1,23 @@
+{%extends 'base.html'%}
+
+{% block content %}
+    {%if projects%}
+    <div class="d-flex justify-content-center" style="margin: 2% 2% 2% 2%">
+        <div class="row">
+            {% for item in projects %}
+                <div class="col-sm">
+                    <div class="card" style="width: 20rem;">
+                        <img class="card-img-top" src="{{item.image.url}}" alt="Card image cap">
+                        <div class="card-body">
+                            <h5 class="card-title">{{item.title}}</h5>
+                            <p class="card-text">{{user.username}}</p>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+    {%else%}
+    <h2>{{message}}</h2>
+    {%endif%}
+{% endblock %}
